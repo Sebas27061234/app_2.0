@@ -5,7 +5,7 @@ const {database} = require('../database/db');
 
 const server_app = express();
 
-server_app.set('port',process.env.PORT||4000)
+server_app.set('port',process.env.PORT||4000);
 
 try {
     database.authenticate();
@@ -19,3 +19,4 @@ server_app.listen(server_app.get('port'),()=>{
 })
 
 server_app.use('/movie',routes.inicio);
+console.log('Terminado al final');
