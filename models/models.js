@@ -9,7 +9,7 @@ const ModeloPelicula = database.define('Pelicula',{
     content: {type: DataTypes.STRING}
 })
 
-console.log(ModeloPelicula);
-console.log(typeof(ModeloPelicula));
+//console.log(ModeloPelicula);
+//console.log(typeof(ModeloPelicula));
 
 module.exports.ModeloPelicula = ModeloPelicula

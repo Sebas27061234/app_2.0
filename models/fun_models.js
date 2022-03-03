@@ -21,7 +21,33 @@ const getOneMovie = async(req,res) => {
 }
 
 //Crear Registro
+const createOneMovie = async(req,res) => {
+    try {
+        await ModeloPelicula.create(req.body)
+        res.json({message: "Registro creado satisfactoriamente"})
+    } catch (error) {
+        res.json({message: "No se ha realizado ningún registro"})
+    }
+}
 
 //Actualizar Registro
+const updateOneMovie = async(req,res) => {
+    try {
+        await ModeloPelicula.update(req.body({where: {id: req.params.id}}));
+        res.json({message: "Registro actualizado"})
+    } catch (error) {
+        res.json({message: "No se ha podido actualizar el registro"})
+    }
+}
 
 //Eliminar Registro
+const deleteOneMovie = async(req,res) =>{
+    try {
+        await ModeloPelicula.destroy({where: {id: req.params.id}})
+        res.json({message: "Eliminado correctamente"})
+    } catch (error) {
+        res.json({message: "No se pudo eliminar"})
+    }
+}
+
+module.exports = {getAllMovies,getOneMovie,createOneMovie,updateOneMovie,deleteOneMovie}
