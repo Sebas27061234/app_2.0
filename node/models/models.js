@@ -7,9 +7,11 @@ const {database} = require('../database/db');
 const ModeloPelicula = database.define('entretenimiento',{
     title:{type: DataTypes.STRING},
     content: {type: DataTypes.STRING}
+}, {
+    freezeTableName: true
 })
 
-//console.log(ModeloPelicula);
+console.log(ModeloPelicula);
 //console.log(typeof(ModeloPelicula));
 
 module.exports.ModeloPelicula = ModeloPelicula
