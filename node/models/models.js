@@ -4,7 +4,7 @@ const {database} = require('../database/db');
 
 //console.log(database);
 
-const ModeloPelicula = database.define('Pelicula',{
+const ModeloPelicula = database.define('entretenimiento',{
     title:{type: DataTypes.STRING},
     content: {type: DataTypes.STRING}
 })
