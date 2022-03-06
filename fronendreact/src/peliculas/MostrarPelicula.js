@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const URL = 'http://localhost:4000/movie/';
 
 const ComponenteMostrarPelicula = () => {
-    const[movies,setMovie] = useState([])
+    const[movies,setMovie] = useState([{}])
     useEffect(()=>{
         getMovies()
     },[]);

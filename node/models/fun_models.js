@@ -3,10 +3,10 @@ const {ModeloPelicula} = require('./models');
 //Mostrar todas las  instancias
 const getAllMovies = async(req,res) => {
     try {
-        const Peliculas = await ModeloPelicula.findAll();
+        const Peliculas = await ModeloPelicula.findAll({attributes:['id_pelidula','title','content']});
         res.json(Peliculas);
     } catch (error) {
-        res.json({message: 'No se encontraron instancias'})
+        res.json({message: 'No se encontró la instancia'})
     }
 }
 
