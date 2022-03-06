@@ -5,14 +5,15 @@ import {Link} from 'react-router-dom';
 const URL = 'http://localhost:4000/movie/';
 
 const ComponenteMostrarPelicula = () => {
-    const[movies,setMovie] = useState([{}])
+    const[movies,setMovies] = useState([])
     useEffect(()=>{
-        getMovies()
+        getMovies();
     },[]);
 
     const getMovies = async()=>{
-        const res = await axios.get(URL);
-        setMovie(res.data);
+        await axios.get(URL).then((response) => {
+            setMovies(response.data);
+        });
     }
 
     const deleteMovie = async(id) => {
@@ -34,16 +35,16 @@ const ComponenteMostrarPelicula = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {movies.map((movie)=>{
-                                <tr key={movie.id}>
+                            {movies.map((movie)=>(
+                                <tr key={movie.id_pelidula}>
                                     <td>{movie.title}</td>
                                     <td>{movie.content}</td>
                                     <td>
-                                        <Link to = {`/edit/${movie.id}`} className='btn btn-info'>Editar</Link>
-                                        <button onClick={deleteMovie(movie.id)} className='btn btn-danger'>Delete</button>
+                                        <Link to = {`/edit/${movie.id_pelidula}`} className='btn btn-info'>Editar</Link>
+                                        <button onClick={deleteMovie(movie.id_pelidula)} className='btn btn-danger'>Delete</button>
                                     </td>
                                 </tr>
-                            })}
+                            ))}
                         </tbody>    
                     </table>
                 </div>
