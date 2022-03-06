@@ -40,7 +40,7 @@ const ComponenteMostrarPelicula = () => {
                                     <td>{movie.title}</td>
                                     <td>{movie.content}</td>
                                     <td>
-                                        <Link to = {`/edit/${movie.id_pelidula}`} className='btn btn-info'>Editar</Link>
+                                        <Link to = {`/edit/${movie.id_pelidula}`} className='btn btn-info ml-2'>Editar</Link>
                                         <button onClick={deleteMovie(movie.id_pelidula)} className='btn btn-danger'>Delete</button>
                                     </td>
                                 </tr>
